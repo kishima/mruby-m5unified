@@ -2,11 +2,32 @@
 
 ## How to build
 
+We can use devcontainer.
+
 ### make dev container
+
+you may need to modify `devcontainer.json`.
+
+```
+  "mounts": [ 
+    "source=/dev/ttyACM0,target=/dev/ttyACM0,type=bind"
+  ],
+```
+
+build container.
+
+```
+cd .devcontainer
+./build.sh
+```
+
+then, load devcontainer.
 
 ### set module type
 
-idf.py set-target esp32
+if you are using esp32.
+
+`idf.py set-target esp32`
 
 ```
 $ ./run_dev_container.sh 
@@ -27,7 +48,7 @@ Done! You can now compile ESP-IDF projects.
 Go to the project directory and run:
 
   idf.py build
-espidf@fc3755e4ea71:/project$ idf.py set-target esp32
+espidf@xxx:/project$ idf.py set-target esp32
 ```
 
 ### build
