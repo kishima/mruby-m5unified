@@ -1,0 +1,18 @@
+ARG IDF_VER=release-v5.4
+FROM espressif/idf:$IDF_VER
+ENV DEBIAN_FRONTEND=noninteractive
+
+ARG USER_ID=1000
+ARG USER_NAME=esp-idf
+
+RUN useradd --create-home --home-dir /home/$USER_ID --shell /bin/bash --user-group --groups adm,sudo $USER_ID && \
+    echo $USER_ID:$USER_ID | chpasswd && \
+    echo "$USER_ID ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+ARG USER_ID
+USER $USER_ID
+
+WORKDIR /project
+ENTRYPOINT ["/opt/esp/entrypoint.sh"]
+CMD ["/bin/bash"]
+
