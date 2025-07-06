@@ -5,4 +5,4 @@ idf_component_register(
   PRIV_REQUIRES nvs_flash
 )
 
-littlefs_create_partition_image(storage ./storage FLASH_IN_PROJECT)
+# littlefs_create_partition_image(storage ./storage FLASH_IN_PROJECT)

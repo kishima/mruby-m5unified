@@ -1,6 +1,7 @@
 dependencies.lock
 build/
 sdkconfig.old
+sdkconfig
 
 main/main_mrb.h
 main/spiffs/*.pem
